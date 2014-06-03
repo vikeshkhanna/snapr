@@ -4,5 +4,8 @@ install:
   - unzip gtest-1.7.0.zip && cd gtest-1.7.0
   - ./configure && make
 
-after_install: export LD_LIBRARY_PATH=lib/.libs:$LD_LIBRARY_PATH && export CPP_INCLUDE_PATH=include/gtest:$CPP_INCLUDE_PATH
-script: make && make test
+before_script: export LD_LIBRARY_PATH=lib/.libs:$LD_LIBRARY_PATH && export CPP_INCLUDE_PATH=include/gtest:$CPP_INCLUDE_PATH
+script: 
+  - make clean
+  - make 
+  - make test
