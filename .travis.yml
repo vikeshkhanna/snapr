@@ -7,10 +7,10 @@ install:
 before_script: 
   - PWD=`pwd`
   - export LD_LIBRARY_PATH=$PWD/lib/.libs:$LD_LIBRARY_PATH 
+  - export LIBRARY_PATH=$PWD/lib/.libs:$LIBRARY_PATH
   - export CPLUS_INCLUDE_PATH=$PWD/include/gtest:$CPLUS_INCLUDE_PATH
   - export C_INCLUDE_PATH=$PWD/include/gtest:$C_INCLUDE_PATH
   - cd ../
 script: 
-  - make clean
   - make 
   - make test
