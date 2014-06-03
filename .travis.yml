@@ -1,11 +1,8 @@
 language: cpp
 install: 
   - wget https://googletest.googlecode.com/files/gtest-1.7.0.zip
-  - unzip gtest-1.7.0.zip
-  - cd gtest-1.7.0
+  - unzip gtest-1.7.0.zip && cd gtest-1.7.0
   - ./configure && make
-  - cp -r include/gtest /usr/local/include
-  - cp lib*.a /usr/local/lib
 
-after_install: export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH && export CPP_INCLUDE_PATH=/usr/local/include:$CPP_INCLUDE_PATH
+after_install: export LD_LIBRARY_PATH=lib/.libs:$LD_LIBRARY_PATH && export CPP_INCLUDE_PATH=include/gtest:$CPP_INCLUDE_PATH
 script: make && make test
